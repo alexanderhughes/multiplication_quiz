@@ -6,16 +6,6 @@
   </head>
   <body>
 	  <h1>Here's the quiz!</h1>
-	  <%= @quiz[:factor1] %>
-	  <%= @quiz[:factor2] %>
-	  <%= @quiz[:question_total] %>
-	  
-      <%= form_for(@question) do |f| %>
-        <%= f.label :answer, "Answer:" %>
-        <%= f.text_field :answer %>
-		<%= f.submit "Answer", class: "btn btn-lg btn-primary" %>
-	  <% end %>
+	  <p>What is <%= @quiz.num1 %> X <%= @quiz.num2 %>?</p>
   </body>
 </html>
-
-

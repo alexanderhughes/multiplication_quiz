@@ -13,18 +13,11 @@
 
 ActiveRecord::Schema.define(version: 20150304030946) do
 
-  create_table "calcs", force: :cascade do |t|
-    t.string   "question"
-    t.integer  "answer"
-    t.string   "correct"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.integer  "num1"
     t.integer  "num2"
     t.integer  "correct"
+    t.integer  "quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

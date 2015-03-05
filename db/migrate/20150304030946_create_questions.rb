@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.integer :num1
       t.integer :num2
       t.integer :correct
+      t.references :quiz
 
       t.timestamps null: false
     end
