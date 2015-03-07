@@ -6,6 +6,11 @@
   </head>
   <body>
 	  <h1>Here's the quiz!</h1>
-	  <p>What is <%= @quiz.num1 %> X <%= @quiz.num2 %>?</p>
+	  <p>What is <%= @quiz.questions[0][:num1] %> x <%= @quiz.questions[0][:num2] %>?</p>
+	  <%= form_tag( { controller: "questions", action: "update", id: @quiz.questions[0].id }, method: "put") do %>
+	    <%= label_tag(:answer, "Answer:") %>
+	    <%= text_field_tag(:answer) %>
+	    <%= submit_tag("Submit") %>
+	  <% end %>
   </body>
 </html>
