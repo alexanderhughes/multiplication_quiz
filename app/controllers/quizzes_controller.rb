@@ -10,6 +10,14 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
+    @question = @quiz.next_question
+    if @question == nil
+      redirect_to(results_quiz_path(@quiz))
+    end
+  end
+  
+  def results
+    @quiz = Quiz.find(params[:id])
   end
   
   private

@@ -1,0 +1,11 @@
+<% provide(:title, "Results") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %></title>
+  </head>
+  <body>
+	  <h1>Here are your results!</h1>
+	  <p><%= @quiz.score %> / <%= @quiz.question_total %></p>
+  </body>
+</html>

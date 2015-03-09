@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :quizzes
+  resources :quizzes do
+    get 'results', on: :member 
+  end
   resources :questions
   
   root 'quizzes#new'
