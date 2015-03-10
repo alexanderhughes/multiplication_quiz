@@ -5,6 +5,7 @@
     <title><%= yield(:title) %></title>
   </head>
   <body>
+	  
 	  <h1>Here's the quiz!</h1>
 	  <p>What is <%= @question.num1 %> x <%= @question.num2 %></p>
 	  <%= form_tag( { controller: "questions", action: "update", id: @question.id }, method: "put") do %>
