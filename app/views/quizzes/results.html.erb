@@ -6,6 +6,17 @@
   </head>
   <body>
 	  <h1>Here are your results!</h1>
-	  <p><%= @quiz.score %> / <%= @quiz.question_total %></p>
+		  <p><%= @quiz.score %> / <%= @quiz.question_total %></p>
+		  <p><strong><%= (((@quiz.score * 1.0) / @quiz.question_total) * 100).round(0)%>%</strong></p>
+		  <p><%= @quiz.congrats %></p>
+		  <p><% if @quiz.score / @quiz.question_total != 1 %>
+			  <%= @quiz.wrong.each do |each| %>
+				  <ul>
+				  	<li><%= each[0] %>, <strong><%= each[1]%></strong></li>
+				  </ul>
+				  <% end %>
+			  <% end %>
+		  </p>
+		  <p style="position:relative; margin-top:40px"><%= button_to "Take another quiz!", new_quiz_path, :class => 'btn btn-lg btn-primary', :method => :get %></p>
   </body>
 </html>

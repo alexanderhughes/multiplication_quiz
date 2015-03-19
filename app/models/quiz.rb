@@ -17,16 +17,48 @@ class Quiz < ActiveRecord::Base
     questions.where(answer: nil).first
   end
   
+  def counter
+    counter = 0
+    for e in questions
+      if e.answer != nil
+        counter += 1
+      else
+        counter = counter
+      end
+    end
+    return counter + 1
+  end
+  
   def score
     score = 0
     for e in questions
       if e.num1 * e.num2 == e.answer
-        e.correct = 1
+        e.correct == 1
         score += 1
       else
         e.correct == 0
       end        
     end
     return score
+  end
+  
+  def wrong
+    incorrect = []
+    if score / question_total != 1
+      for e in questions
+        if e.num1 * e.num2 != e.answer
+          incorrect.push([e.num1.to_s + " x " + e.num2.to_s + " = " + e.answer.to_s, e.num1*e.num2])
+        end
+      end
+      return incorrect
+    end
+  end
+    
+  def congrats
+    if score / question_total == 1
+      return "Perfect score! Great work!"
+    else
+      return "Keep practicing!"
+    end
   end
 end

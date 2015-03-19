@@ -1,21 +1,32 @@
-<% provide(:title, "New Quiz") %>
+<% provide(:title, "Create your quiz and test yourself!") %>
 <!DOCTYPE html>
 <html>
   <head>
     <title><%= yield(:title) %></title>
+	<script>
+	$(document).ready(function(){
+		$('input[type=text]:first').focus()
+	})
+	</script>
   </head>
   <body>
-	  <h1>Create a new quiz!</h1>
-      <%= form_for(@quiz) do |f| %>
-        <%= f.label :factor1, "Please enter the lowest factor you would like to be quizzed on:" %>
-        <%= f.text_field :factor1 %>
-
-        <%= f.label :factor2, "Please enter the highest factor you would like to be quizzed on:"  %>
-        <%= f.text_field :factor2 %>
-
-        <%= f.label :question_total, "How many questions would you like to be on your quiz?"%>
-        <%= f.text_field :question_total %>
-		<%= f.submit "Start new quiz!", class: "btn btn-lg btn-primary" %>
-	  <% end %>
+	  <h1>Start a new quiz!</h1>
+	  	<p>
+		  <%= form_for(@quiz) do |f| %>
+		    <%= f.label :factor1, "Please enter the lowest factor you would like to be quizzed on:" %>
+		    <%= f.text_field :factor1 %>
+		</p>
+		<p>
+		    <%= f.label :factor2, "Please enter the highest factor you would like to be quizzed on:"  %>
+		    <%= f.text_field :factor2 %>
+		</p>
+		<p>
+		    <%= f.label :question_total, "How many questions would you like to be on your quiz?"%>
+		    <%= f.text_field :question_total %>
+		</p>
+		<p style="position:relative; margin-top: 40px">
+			<%= f.submit "Start new quiz!", class: "btn btn-lg btn-primary" %>
+	  	  <% end %>
+  		</p>
   </body>
 </html>
