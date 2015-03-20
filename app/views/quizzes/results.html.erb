@@ -10,9 +10,9 @@
 		  <p><strong><%= (((@quiz.score * 1.0) / @quiz.question_total) * 100).round(0)%>%</strong></p>
 		  <p><%= @quiz.congrats %></p>
 		  <p><% if @quiz.score / @quiz.question_total != 1 %>
-			  <%= @quiz.wrong.each do |each| %>
+			  <% @quiz.wrong_answers.each do |wrong_answer| %>
 				  <ul>
-				  	<li><%= each[0] %>, <strong><%= each[1]%></strong></li>
+				  	<li><%= wrong_answer[0] %> <strong><%= wrong_answer[1] %></strong></li>
 				  </ul>
 				  <% end %>
 			  <% end %>

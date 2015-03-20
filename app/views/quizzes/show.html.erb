@@ -16,7 +16,7 @@
 	  	<p style="position:relative; margin-top: 25px"><%= form_tag( { controller: "questions", action: "update", id: @question.id }, method: "put") do %>
 		    <%= label_tag(:answer, "Answer:") %>
 		    <%= text_field_tag(:answer) %>
-		    <%= submit_tag("Submit") %>
+		    <%= submit_tag("Submit", class: "btn btn-sm btn-primary") %>
 		  <% end %></p>
   </body>
 </html>

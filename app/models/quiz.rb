@@ -42,16 +42,17 @@ class Quiz < ActiveRecord::Base
     return score
   end
   
-  def wrong
+  def wrong_answers
     incorrect = []
     if score / question_total != 1
       for e in questions
         if e.num1 * e.num2 != e.answer
-          incorrect.push([e.num1.to_s + " x " + e.num2.to_s + " = " + e.answer.to_s, e.num1*e.num2])
+          incorrect.push(["#{e.num1} x #{e.num2}", e.answer.to_s, e.num1 * e.num2])
+          #incorrect.push([e.num1.to_s + " x " + e.num2.to_s + " = " + e.answer.to_s, e.num1*e.num2])
         end
       end
-      return incorrect
     end
+    return incorrect
   end
     
   def congrats
