@@ -1,22 +1,17 @@
 <% provide(:title, "Results") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %></title>
-  </head>
-  <body>
-	  <h1>Here are your results!</h1>
-		  <p><%= @quiz.score %> / <%= @quiz.question_total %></p>
-		  <p><strong><%= (((@quiz.score * 1.0) / @quiz.question_total) * 100).round(0)%>%</strong></p>
-		  <p><%= @quiz.congrats %></p>
-		  <p><% if @quiz.score / @quiz.question_total != 1 %>
-			  <% @quiz.wrong_answers.each do |wrong_answer| %>
-				  <ul>
-				  	<li><%= wrong_answer[0] %> <strong><%= wrong_answer[1] %></strong></li>
-				  </ul>
-				  <% end %>
-			  <% end %>
-		  </p>
-		  <p style="position:relative; margin-top:40px"><%= button_to "Take another quiz!", new_quiz_path, :class => 'btn btn-lg btn-primary', :method => :get %></p>
-  </body>
-</html>
+<body>
+  <h1>Here are your results!</h1>
+	  <p><%= @quiz.score %> / <%= @quiz.question_total %></p>
+	  <p><strong><%= (((@quiz.score * 1.0) / @quiz.question_total) * 100).round(0)%>%</strong></p>
+	  <p><%= @quiz.congrats %></p>
+	  <p><% if @quiz.score / @quiz.question_total != 1 %>
+		  <% @quiz.wrong_answers.each do |wrong_answer| %>
+		  	<div id="original_question"><%= wrong_answer[0] %> = </div>
+			<div id="wrong_answer"><%= wrong_answer[1] %></div>
+			<div id="correct_answer"><strong><%= wrong_answer[2] %></strong></div>
+			<% end %>
+		  <% end %>
+	  </p>
+	  <p id="new_quiz_button">
+		  <%= button_to "Take another quiz!", new_quiz_path, :class => 'btn btn-lg btn-primary', :method => :get %></p>
+</body>

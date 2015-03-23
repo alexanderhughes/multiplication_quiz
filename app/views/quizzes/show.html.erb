@@ -1,22 +1,12 @@
 <% provide(:title, "Quiz") %>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= yield(:title) %></title>
-  	<script>
-  	$( document ).ready(function() {
-	$('input[type=text]:first').focus()	
-  	});
-  	</script>
-  </head>
-  <body>
-	  <h1>Here's the quiz!</h1>
-	  	<p style="color:#C3C3C3">Question <%= @quiz.counter %> / <%= @quiz.question_total %></p>
-	  	<p style="position:relative; margin-top: 40px">What is <strong><%= @question.num1 %> x <%= @question.num2 %></strong>?</p>
-	  	<p style="position:relative; margin-top: 25px"><%= form_tag( { controller: "questions", action: "update", id: @question.id }, method: "put") do %>
-		    <%= label_tag(:answer, "Answer:") %>
-		    <%= text_field_tag(:answer) %>
-		    <%= submit_tag("Submit", class: "btn btn-sm btn-primary") %>
-		  <% end %></p>
-  </body>
-</html>
+<body>
+  <h1>Here's the quiz!</h1>
+  	<p id="question_number">Question <%= @quiz.unanswered_questions + 1 %> / <%= @quiz.question_total %></p>
+  	<p id="ask_question">What is <strong><%= @question.num1 %> x <%= @question.num2 %></strong>?</p>
+  	<p id="answer_box">
+		<%= form_tag( { controller: "questions", action: "update", id: @question.id }, method: "put") do %>
+	    <%= label_tag(:answer, "Answer:") %>
+	    <%= text_field_tag(:answer) %>
+	    <%= submit_tag("Submit", class: "btn btn-sm btn-primary") %>
+	  <% end %></p>
+</body>

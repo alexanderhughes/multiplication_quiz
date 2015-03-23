@@ -5,7 +5,11 @@ class QuizzesController < ApplicationController
   
   def create
     @quiz = Quiz.create(quiz_params)
-    redirect_to quiz_path(@quiz)
+    if @quiz.errors.empty?
+      redirect_to quiz_path(@quiz)
+    else
+      render :new
+    end
   end
 
   def show

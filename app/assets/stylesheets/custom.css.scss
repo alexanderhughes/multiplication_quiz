@@ -50,3 +50,61 @@ p {
   line-height: 1.7em;
 }
 
+/* forms */
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+#new_quiz_button {
+	position:relative;
+	margin-top: 40px;
+}
+
+#ask_question {
+	position:relative;
+	margin-top: 40px;
+}
+
+/* question boxes */
+
+#answer_box {
+	position:relative;
+	margin-top: 25px;
+}
+
+#question_number {
+	color:#C3C3C3;
+}
+
+/* results display */
+
+#original_question {
+	margin-left:20px;
+	display: inline-block;
+	font-weight:bold;
+}
+
+#wrong_answer {
+	color: red;
+	display: inline-block;
+	font-weight:bold;
+}
+
+#correct_answer {
+	position: relative;
+	display: inline-block;
+	margin-left: 45px;
+	font-weight:bold;
+}
